@@ -31,7 +31,7 @@ describe 'Antipode' do
     expect(expected['data']['type']).to eq('antipode')
     expect(expected['data']['attributes']).to have_key('lat')
     expect(expected['data']['attributes']).to have_key('long')
-    expect(expected['data']['attributes']['lat']).to have_key('-27')
-    expect(expected['data']['attributes']['long']).to have_key('98')
+    expect(expected['data']['attributes']['lat']).to have_key('22.3193')
+    expect(expected['data']['attributes']['long']).to have_key('114.1694')
   end 
 end 
