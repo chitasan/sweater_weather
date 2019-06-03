@@ -1,10 +1,14 @@
 class Antipode
-  attr_reader :city, :state
+  attr_reader :origin_city,
+              :antipode_city,
+              :latitude,
+              :longitude
 
   def initialize(city_state)
     split_location = city_state.split(',')
-    @city          = split_location[0]
-    @state         = split_location[1]
+    @origin_city   = split_location[0]
+    @origin_state  = split_location[1]
+    @antipode_city = get_city
     @latitude      = get_antipode_lat
     @longitude     = get_antipode_long
   end
@@ -16,35 +20,35 @@ class Antipode
     }
   end
 
-  def search_location 
-    @city
+  def search_location
+    @origin_city
   end
 
   def location_name #antipode city name
-     get_city
+    @antipode_city
   end
 
   private
 
+  def location
+    # ReverseGeocode.find_or_create_by(latitude: , longitude: ) do |location|
+  end 
+
   def get_antipode_lat
-    @latitude ||= antipode_service.get_lat
+    antipode_service.get_lat
   end
   
   def get_antipode_long
-    @longitude ||= antipode_service.get_long
+    antipode_service.get_long
   end 
 
   def antipode_service
-    @antipode_service ||= AntipodeService.new(@city, @state)
+    AntipodeService.new(@latitude, @longitude)
   end
 
   def get_city
-    @city ||= reverse_geocode_service.get_city
+    reverse_geocode_service.get_city
   end
-
-  def get_state
-    @state ||= reverse_geocode_service.get_state
-  end 
 
   def reverse_geocode_service
     @reverse_geocode_service ||= ReverseGeocodeService.new(@latitude, @longitude)
@@ -52,9 +56,5 @@ class Antipode
 
   def weather
     @weather ||= Weather.new(@latitude, @longitude)
-  end
-
-  def get_date
-    Time.now.strftime('%Y-%m-%d')
   end
 end

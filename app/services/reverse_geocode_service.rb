@@ -1,5 +1,4 @@
 class ReverseGeocodeService
-
   def initialize(lat, long)
     @lat = lat.to_i
     @long = long.to_i
