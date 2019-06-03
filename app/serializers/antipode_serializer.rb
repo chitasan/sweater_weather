@@ -2,5 +2,5 @@ class AntipodeSerializer
   include FastJsonapi::ObjectSerializer
 
   set_id :object_id
-  attributes :city, :state
+  attributes :forecast, :location_name, :search_location
 end
