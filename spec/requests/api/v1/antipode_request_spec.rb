@@ -5,20 +5,18 @@
 # Your response should resemble the structure and contain the following data:
 # ```
 # {
-#     "data": [
-#         {
-#             "id": "1",
-#             "type": "antipode",
-#             "attributes": {
-#                 "location_name": "Antipode City Name",
-#                 "forecast": {
-#                     "summary": "Mostly Cloudy,
-#                     "current_temperature": "72",
-#                 				},
-#             "search_location": "Hong Kong"
-#             }
-#         }
-#     ]
+# 	"data": [{
+# 		"id": "1",
+# 		"type": "antipode",
+# 		"attributes": {
+# 			"location_name": "Antipode City Name",
+# 			"forecast": {
+# 				"summary": "Mostly Cloudy",
+# 				"current_temperature": "72"
+# 			},
+# 			"search_location": "Hong Kong"
+# 		}
+# 	}]
 # }
 
 require 'rails_helper'
@@ -30,7 +28,7 @@ describe 'Antipode' do
     expected = JSON.parse(response.body)
 
     expect(response).to be_successful
-    expect(expected['data']['type']).to be('antipode')
+    expect(expected['data']['type']).to eq('antipode')
     expect(expected['data']['attributes']).to have_key('lat')
     expect(expected['data']['attributes']).to have_key('long')
     expect(expected['data']['attributes']['lat']).to have_key('-27')
