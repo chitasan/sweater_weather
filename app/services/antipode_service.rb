@@ -28,19 +28,5 @@ class AntipodeService
       faraday.headers['api_key'] = ENV['AMYPODE_API_KEY']
       faraday.adapter Faraday.default_adapter
     end
-  end 
-end 
-
-# class AmypodeService < ApplicationService
-#   def get_antipode(location)
-#     lat = location.latitude.to_i
-#     long = location.longitude.to_i
-#     get_json("/api/v1/antipodes?lat=#{lat}&long=#{long}", authenticate!)
-#   end
-
-#   private
-
-#   def authenticate!
-#     ENV['AMYPODE_KEY']
-#   end
-# end
+  end
+end
