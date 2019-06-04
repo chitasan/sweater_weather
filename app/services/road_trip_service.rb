@@ -4,7 +4,7 @@ class RoadTripService
     @destination = destination
   end
 
-  def get_distance
+  def get_time
     get_roadtrip_json[:routes][0][:legs][0][:duration][:text]
   end 
 
