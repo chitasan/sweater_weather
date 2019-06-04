@@ -8,7 +8,7 @@ describe RoadTripService do
   end
 
   describe 'instance methods' do 
-    it '.get_distance' do 
+    it '.get_time' do 
       service = RoadTripService.new("denver,co", "pueblo,co")
 
       expect(service.get_distance).to be_a(String)
