@@ -19,6 +19,7 @@ class LocationService
   end
   
   def get_location_json
+    # binding.pry
     response = google_conn.get
     JSON.parse(response.body, symbolize_names: true)
   end 

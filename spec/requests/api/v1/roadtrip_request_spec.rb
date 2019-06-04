@@ -1,6 +1,3 @@
-# The object of this assessment is to create an API endpoint to assist in the planning of road trips.
-
-# You will create an endpoint like so:, `/api/v1/road_trip?start=denver,co&end=pueblo,co`
 
 # You will use the Google Directions API:  https://developers.google.com/maps/documentation/directions/start
 # in order to find out how long it will take to travel from the two locations, and then deliver the weather forecast for the hour
@@ -12,16 +9,19 @@
 require 'rails_helper'
 
  describe 'Roadtrip API' do
-  it 'displays weather upon arrival to destination' do
-    location = Location.create(city: "Pubelo", state: "CO", latitude: "38.345385", longitude: "-104.460868")
-
+  it 'displays weather for destination arrival' do
+  
     get '/api/v1/road_trip?start=denver,co&end=pueblo,co'
 
+    expected = JSON.parse(response.body)
     expect(response).to be_successful
-    data = JSON.parse(response.body)
 
-    # expect(data["type"]).to eq("")
-    # expect(data["attributes"]).to eq("")
+    expect(expected['data']["type"]).to eq("road_trip_forecasts")
+    expect(expected['data']["attributes"]).to have_key("city")
+    expect(expected['data']["attributes"]).to have_key("state")
+    expect(expected['data']["attributes"]).to have_key("arrival_forecast")
+    expect(expected['data']["attributes"]["arrival_forecast"]).to have_key("icon")
+    expect(expected['data']["attributes"]["arrival_forecast"]).to have_key("temperature")
   end
 end
 
