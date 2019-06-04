@@ -14,10 +14,15 @@ class RoadTripForecasts
   end
 
   def get_destination_arrival_weather
-    get_destination_weather[1]
+    get_destination_weather.last
   end 
 
   private
+
+  def time
+    split_time = time_to_destination.split(' ')
+    (split_time[0] + '.' + split_time[2]).to_f.ceil
+  end 
 
   def get_destination_weather
     JSON.parse(@location.hourly_weathers.hourly_weather_info, symbolize_names: true) 
@@ -25,7 +30,7 @@ class RoadTripForecasts
   
   def location
     Location.find_or_create_by(city: city, state: state) do |location|
-      location.hourly_weathers = HourlyWeathers.create(hourly_weather_info: weather.weather_hours(2).to_json)
+      location.hourly_weathers = HourlyWeathers.create(hourly_weather_info: weather.weather_hours(time).to_json)
     end 
   end 
   
@@ -50,6 +55,6 @@ class RoadTripForecasts
   end 
 
   def road_trip_service
-    RoadTripService.new(origin, destination)
+    RoadTripService.new(@origin, @destination)
   end 
 end
