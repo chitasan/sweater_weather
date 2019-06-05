@@ -7,7 +7,7 @@
    - [Flickr API](https://www.flickr.com/services/api/)
    - [Fast JSON:API](https://github.com/Netflix/fast_jsonapi)
  
-Try the API in production on [Heroku](https://fierce-meadow-77109.herokuapp.com/)
+Try the API in production on [Heroku](https://damp-waters-15456.herokuapp.com/)
 
 The project spec can be found [here](http://backend.turing.io/module3/projects/sweater_weather).
 
