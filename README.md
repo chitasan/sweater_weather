@@ -53,6 +53,11 @@ The following endpoint gets the location's latitude and longitude using the Goog
 ```
 GET /api/v1/forecast?location=denver,co
 ```
+### Retrieving a Background for forecast location:
+The following endpoint gets the location's background using Flickr API. 
+```
+GET /api/v1/backgrounds?location=denver,co
+```
 ### Creating a user: 
 The following endpoint gets the appropriate data in the request body and creates a new user with an API key for user. 
 ```
