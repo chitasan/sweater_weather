@@ -39,7 +39,6 @@ Sign up for API Keys:
 DARKSKY_API_KEY: 
 GOOGLE_API_KEY: 
 FLICKR_API_KEY: 
-AMYPODE_API_KEY: 
   ```
 To test, run: 
 ```
