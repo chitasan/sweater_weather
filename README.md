@@ -30,7 +30,7 @@ Sign up for API Keys:
   - [Flickr API](https://www.flickr.com/services/api/) 
 
 
- * Deployment instructions	  Run the following command to install `figaro`:
+Run the following command to install `figaro`:
   ```
   figaro install
   ```
