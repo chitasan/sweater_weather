@@ -9,8 +9,6 @@
  
 Try the API in production on [Heroku](https://weather-forecast-app-api.herokuapp.com)
 
-The project spec can be found [here](http://backend.turing.io/module3/projects/sweater_weather).
-
 ## Setup & Installation 
 
 Clone the repository [here](https://github.com/chitasan/sweater_weather).
@@ -52,7 +50,7 @@ The following endpoint gets the location's latitude and longitude using the Goog
 ```
 GET /api/v1/forecast?location=denver,co
 ```
-### Retrieving a Background for forecast location:
+### Retrieving a background for a forecast location:
 The following endpoint gets the location's background using Flickr API. 
 ```
 GET /api/v1/backgrounds?location=denver,co
